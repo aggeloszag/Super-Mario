@@ -35,6 +35,7 @@ body {
 
 			this.load.tilemap('level', 'assets/super_mario_map.json', null,
 					Phaser.Tilemap.TILED_JSON);
+			this.load.audio('stomp',['https://github.com/aggeloszag/Super-Mario/blob/develop/audio/stomp.wav']);
 		}
 
 		function create() {
@@ -43,6 +44,7 @@ body {
 			game.scale.pageAlignVertically = true
 			game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 			game.physics.startSystem(Phaser.Physics.ARCADE);
+			music = game.add.audio('stomp');
 
 			game.stage.backgroundColor = '#5c94fc';
 
@@ -134,6 +136,7 @@ body {
 				goomba.body.enable = false;
 				player.body.velocity.y = -80;
 				game.time.events.add(Phaser.Timer.SECOND, function() {
+					music.play(stomp);
 					goomba.kill();
 				});
 			} else {
