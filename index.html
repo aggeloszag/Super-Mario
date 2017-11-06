@@ -19,6 +19,7 @@ body {
 			create : create,
 			update : update
 		}, false, false);
+		var Mymusic;
 
 		function preload() {
 
@@ -44,7 +45,8 @@ body {
 			game.scale.pageAlignVertically = true
 			game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 			game.physics.startSystem(Phaser.Physics.ARCADE);
-			music = game.add.audio('stomp');
+			myMusic = new sound("audio/bgm.mp3");
+			myMusic.play();
 
 			game.stage.backgroundColor = '#5c94fc';
 
